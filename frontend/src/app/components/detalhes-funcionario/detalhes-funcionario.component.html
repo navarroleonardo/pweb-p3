@@ -1,0 +1,69 @@
+<div *ngIf="funcionarioAtual" class="edit-form">
+  <h4>Funcionario</h4>
+  <form>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        [(ngModel)]="funcionarioAtual.nome"
+        name="nome"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        [(ngModel)]="funcionarioAtual.email"
+        name="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="documento">Documento</label>
+      <input
+        type="text"
+        class="form-control"
+        id="documento"
+        [(ngModel)]="funcionarioAtual.documento"
+        name="documento"
+      />
+    </div>
+    <div class="form-group">
+      <label for="grupo">Grupo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="grupo"
+        [(ngModel)]="funcionarioAtual.grupo"
+        name="grupo"
+      />
+    </div>
+    <div class="form-group">
+      <label for="obs">Obs</label>
+      <input
+        type="text"
+        class="form-control"
+        id="obs"
+        [(ngModel)]="funcionarioAtual.obs"
+        name="obs"
+      />
+    </div>
+  </form>
+
+  <button class="mr-2" (click)="deletarFuncionario()">
+    Deletar
+  </button>
+
+  <button type="submit" class="" (click)="atualizarFuncionario()">
+    Atualizar
+  </button>
+  <p>{{ mensagem }}</p>
+</div>
+
+<div *ngIf="!funcionarioAtual">
+  <br />
+  <p>Não foi possível encontrar este funcionário</p>
+</div>

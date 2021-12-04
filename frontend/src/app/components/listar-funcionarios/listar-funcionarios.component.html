@@ -1,0 +1,67 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Procurar pelo nome"
+        [(ngModel)]="nome"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="buscarNome()"
+        >
+          Procurar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Lista de Funcionários</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let funcionario of funcionarios; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="atualizarFuncionarioAtivo(funcionario, i)"
+      >
+        {{ funcionario.nome }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="funcionarioAtual">
+      <h4>Funcionario</h4>
+      <div>
+        <label><strong>Nome:</strong></label> {{ funcionarioAtual.nome }}
+      </div>
+      <div>
+        <label><strong>Email:</strong></label>
+        {{ funcionarioAtual.email }}
+      </div>
+      <div>
+        <label><strong>Documento:</strong></label>
+        {{ funcionarioAtual.documento }}
+      </div>
+      <div>
+        <label><strong>Grupo:</strong></label>
+        {{ funcionarioAtual.grupo }}
+      </div>
+      <div>
+        <label><strong>Obs:</strong></label>
+        {{ funcionarioAtual.obs }}
+      </div>
+
+      <a class="" routerLink="/funcionarios/{{ funcionarioAtual.id }}">
+        Editar
+      </a>
+    </div>
+
+    <div *ngIf="!funcionarioAtual">
+      <br />
+      <p>Selecione um funcionário...</p>
+    </div>
+  </div>
+</div>

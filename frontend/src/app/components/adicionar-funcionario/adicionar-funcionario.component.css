@@ -1,0 +1,16 @@
+.submit-form {
+  max-width: 300px;
+  margin: auto;
+}
+
+label {
+  color: midnightblue;
+}
+
+#button1 {
+  background-color: green;
+}
+
+.form-group {
+  border-color: black;
+}
